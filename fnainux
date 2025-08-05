@@ -67,5 +67,5 @@ exec >/dev/tty 2>&1
 echo -e "\n\033[1;34m=====================================\033[0m"
 echo -e "\033[1;36m[FNAI] SUKSES SEMUA SUDAH TERINSTALL\033[0m"
 echo -e "\033[1;37mGunakan perintah berikut untuk menjalankan:\033[0m"
-echo -e "\033[1;37mcd fnai && python3 fnai.py\033[0m"
+echo -e "\033[1;37python3 fnai.py\033[0m"
 echo -e "\033[1;34m=====================================\033[0m"
