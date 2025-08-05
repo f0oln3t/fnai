@@ -36,6 +36,7 @@ loading() {
 
 (
     git clone https://github.com/f0oln3t/fnai.git &>/dev/null
+    cd fnai
 ) & loading "MENGINSTALL FNAi
 
 echo -e "${BIRU}[FNAI]${RESET} ${HIJAU}SEMUA SUKSES, DEPENDENCIES SUDAH DIINSTALL${RESET}"
