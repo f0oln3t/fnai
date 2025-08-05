@@ -33,5 +33,9 @@ loading() {
     pip install base64 -y &>/dev/null
 ) & loading "MENGINSTALL BASE64"
 
+(
+    git clone https://github.com/f0oln3t/fnai.git &>/dev/null
+) & loading "MENGINSTALL FNAi
+
 echo -e "${BIRU}[FNAI]${RESET} ${HIJAU}SEMUA SUKSES, DEPENDENCIES SUDAH DIINSTALL${RESET}"
 echo -e "${KUNING}Gunakan: python3 fnai.py untuk menggunakan AI${RESET}"
