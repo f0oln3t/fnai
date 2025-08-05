@@ -22,7 +22,7 @@ clear
 # Enable output temporarily for messages
 exec >/dev/tty 2>&1
 echo -e "\033[1;34m=====================================\033[0m"
-echo -e "\033[1;34m         FNAI AUTO INSTALLER         \033[0m"
+echo -e "\033[1;34m         FNAI LINUX INSTALLER         \033[0m"
 echo -e "\033[1;34m=====================================\033[0m"
 exec >/dev/null 2>&1
 
