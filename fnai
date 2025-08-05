@@ -31,6 +31,7 @@ loading() {
 
 (
     pip install base64 -y &>/dev/null
+    pip install google-genai
 ) & loading "MENGINSTALL BASE64"
 
 (
