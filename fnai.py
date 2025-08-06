@@ -1,8 +1,7 @@
-#                    -RULES-                        #
+#                    -RULES-                    #
 #  1. DILARAG MENJUAL KEMBALI SCRIPT INI
 #  2. DILARANG RECODE SCRIPT INI 
 #  3. DILARANG MEMBAGIKAN SCRIPT INI
-
 # ADA YANG LANGGAR??
 # REPORT KE TELEGRAM t.me/f0oln3tt
 # KETAHUAN LANGGAR??, SIAP SIAP GW HAPUS APi NYA
@@ -10,6 +9,9 @@ import os
 import base64
 from google import genai
 import getpass
+import sys
+import requests
+import time
 
 # Warna ANSI
 CYAN = "\033[96m"
@@ -19,6 +21,44 @@ BRIGHT_WHITE = "\033[97m"
 RESET = "\033[0m"
 
 PASSWORD = base64.b64decode("cHdueWFnYWFkYWppcg==").decode()
+VERSI_LOCAL = base64.b64decode("MS4w").decode()
+VERSI_URL = base64.b64decode("aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Ywb2xuM3QvZm5haS9ub20vdmVyc2kudHh0").decode()
+GIT_URL = base64.b64decode("aHR0cHM6Ly9naXRodWIuY29tL2Ywb2xuM3QvZm5haS5naXQ=").decode()
+
+def animasi_loading(text, durasi=2):
+    anim = "|/-\\"
+    idx = 0
+    start = time.time()
+    while time.time() - start < durasi:
+        sys.stdout.write(f"\r{text} {anim[idx % len(anim)]}")
+        sys.stdout.flush()
+        idx += 1
+        time.sleep(0.1)
+    print("\r", end="")  # Hapus animasi
+
+def cek_update():
+    animasi_loading("[FNAI] MENGECEK UPDATE")
+    try:
+        versi_remote = requests.get(VERSI_URL, timeout=5).text.strip()
+        if versi_remote != VERSI_LOCAL:
+            print(f"[FNAI] UPDATE TERSEDIA DENGAN VERSI v{versi_remote}")
+            tanya = input("[FNAI] Mau update? y/n: ").strip().lower()
+            if tanya == "y":
+                print("[FNAI] Mengupdate script...")
+                os.system(f"cd .. && rm -rf fnai && git clone {GIT_URL}")
+                print("[FNAI] Update selesai.")
+                sys.exit()
+            else:
+                print("[FNAI] Update dibatalkan.")
+                sys.exit()
+        else:
+            print("[FNAI] TIDAK ADA UPDATE")
+    except Exception as e:
+        print(f"[FNAI] Gagal mengecek update: {e}")
+
+if __name__ == "__main__":
+    cek_update()
+    print(" ")
 
 # Minta password (putih, input tersembunyi)
 print(f"{BRIGHT_WHITE} > FNAi v1.0\n >Created By F0olN3tDev\n")
@@ -43,7 +83,7 @@ def handle_command(cmd):
 - /kontak = hubungi owner
 - /buysc = beli script{RESET}"""
     elif cmd == "/keluar":
-        print(f"{CYAN}FNAI: Dadahh!{RESET}")
+        print(f"{CYAN}FNAI: {RESET}Dadahh!")
         exit()
     elif cmd == "/kontak":
         return f"{LIGHT_GREEN}Hubungi owner di: https://t.me/f0oln3tt{RESET}"
@@ -61,7 +101,7 @@ while True:
         if user_input.startswith("/"):
             cmd_response = handle_command(user_input)
             if cmd_response:
-                print(f"{CYAN}ai@FNAi: {cmd_response}{RESET}\n")
+                print(f"{CYAN}ai@FNAi: {RESET}{cmd_response}\n")
                 continue
 
         response = client.models.generate_content(
