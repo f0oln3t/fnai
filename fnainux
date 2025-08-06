@@ -39,24 +39,26 @@ clear
 center_banner
 
 # Loading spinner
-"[FNAI] Loading..."
+echo -e "[FNAI] Loading..."
 source <(echo "c3Bpbm5lcj0oICd8JyAnLycgJy0nICdcJyApOwoKY291bnQoKXsKICBzcGluICYKICBwaWQ9JCEKICBmb3IgaSBpbiBgc2VxIDEgMTBgCiAgZG8KICAgIHNsZWVwIDE7CiAgZG9uZQoKICBraWxsICRwaWQgIAp9CgpzcGluKCl7CiAgd2hpbGUgWyAxIF0KICBkbyAKICAgIGZvciBpIGluICR7c3Bpbm5lcltAXX07IAogICAgZG8gCiAgICAgIGVjaG8gLW5lICJcciRpIjsKICAgICAgc2xlZXAgMC4yOwogICAgZG9uZTsKICBkb25lCn0KCmNvdW50" | base64 -d)
 
 echo -e ""
 # Dependencies Installation (minimal)
-center "[FNAI] Instaling package..."
+echo -e "[FNAI] Instaling package..."
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install python3 python3-pip
+clear
 
 source <(echo "c3Bpbm5lcj0oICd8JyAnLycgJy0nICdcJyApOwoKY291bnQoKXsKICBzcGluICYKICBwaWQ9JCEKICBmb3IgaSBpbiBgc2VxIDEgMTBgCiAgZG8KICAgIHNsZWVwIDE7CiAgZG9uZQoKICBraWxsICRwaWQgIAp9CgpzcGluKCl7CiAgd2hpbGUgWyAxIF0KICBkbyAKICAgIGZvciBpIGluICR7c3Bpbm5lcltAXX07IAogICAgZG8gCiAgICAgIGVjaG8gLW5lICJcciRpIjsKICAgICAgc2xlZXAgMC4yOwogICAgZG9uZTsKICBkb25lCn0KCmNvdW50" | base64 -d)
 
 echo -e ""
-"[FNAI] Instaling python package"
+echo -e "[FNAI] Instaling python package"
 pip3 install base64
 pip3 install google-genai
+clear
 
-"[FNAI] Instaling FNAi"
+echo -e "[FNAI] Instaling FNAi"
 git clone https://github.com/f0oln3t/fnai
 echo -e "\033[32m"
 echo -e "Instaling complete, use 'cd fnai && python fnai.py' to run"
