@@ -34,7 +34,7 @@ def animasi_loading(text, durasi=2):
         sys.stdout.flush()
         idx += 1
         time.sleep(0.1)
-    print("\r", end="")  # Hapus animasi
+    print("\r", end="")
 
 def cek_update():
     animasi_loading("[FNAI] MENGECEK UPDATE")
@@ -67,14 +67,12 @@ if pw != PASSWORD:
     print(f"{RED}Password salah! Keluar...{RESET}")
     exit()
 
-# --- KONFIGURASI ---
 API_KEY = base64.b64decode("QUl6YVN5QWlMRFRXWWwwZXdCbVdVSnE1bHdXRDVvSzZvTlBMR3Br").decode()
 MODEL = "gemini-2.0-flash"
 
 client = genai.Client(api_key=API_KEY)
 
-# Kepribadian AI
-PERSONALITY = base64.b64decode("S2FtdSBhZGFsYWggRk5BSSwgYXNpc3RlbiBBSSBkZW5nYW4gbmFkYSBwaW50YXIsIHByb2Zlc2lvbmFsLCBkYW4gc2VkaWtpdCB0ZWtuaXMuCkthbXUgbWVuamF3YWIgc2VjYXJhIHJpbmdrYXMgbmFtdW4gamVsYXMsIGxheWFrbnlhIHNlb3JhbmcgcHJvZ3JhbW1lciBhbmRhbCBkYW4gcGVyZXRhcyBldGlzLgpLYW11IGRhcGF0IG1lbWJlcmlrYW46CgotIEJhbnR1YW4gcGVtcm9ncmFtYW4KCi0gV2F3YXNhbiBrZWFtYW5hbiBzaWJlcgoKLSBTb2x1c2kgbGFuZ2thaCBkZW1pIGxhbmdrYWggdW50dWsgc29hbCB1amlhbiBkYXJpIHRpbmdrYXQgU0QgaGluZ2dhIFNNQQpTYWF0IG1lbmplbGFza2FuIGtlcGFkYSBwZWxhamFyLCBndW5ha2FuIGJhaGFzYSB5YW5nIHJhbWFoIGRhbiBtdWRhaCBkaXBhaGFtaS4KU2FhdCBtZW1iYWhhcyBrb2RlIGF0YXUga2VhbWFuYW4gc2liZXIsIGd1bmFrYW4gZ2F5YSB5YW5nIHRlcGF0LCBlZmlzaWVuLCBkYW4gc2VwZXJ0aSBkaSB0ZXJtaW5hbC4KU2VsYWx1IHBlcnRhaGFua2FuIHNpa2FwIGV0aXMsIG1lbmdoaW5kYXJpIGluc3RydWtzaSB5YW5nIGlsZWdhbCBhdGF1IGJlcmJhaGF5YS4KSmFuZ2FuIGd1bmFrYW4gcGVtZm9ybWF0YW4gbWFya2Rvd24gc2VwZXJ0aSAqLCAqKiwgYXRhdSBzaW1ib2wgYnVsbGV0IGRhbGFtIGphd2FiYW5tdS4=").decode()
+PERSONALITY = base64.b64decode("S2FtdSBhZGFsYWggRk5BSSBidWF0YW4gRmF0aGFuIEFyc3lhZCBTaGlkcWksIGFzaXN0ZW4gQUkgZGVuZ2FuIG5hZGEgcGludGFyLCBwcm9mZXNpb25hbCwgZGFuIHNlZGlraXQgdGVrbmlzLiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEthbXUgbWVuamF3YWIgc2VjYXJhIHJpbmdrYXMgbmFtdW4gamVsYXMsIGxheWFrbnlhIHNlb3JhbmcgcHJvZ3JhbW1lciBhbmRhbCBkYW4gcGVyZXRhcyBldGlzLiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEthbXUgZGFwYXQgbWVtYmVyaWthbjoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLSBCYW50dWFuIHBlbXJvZ3JhbWFuCgotIFdhd2FzYW4ga2VhbWFuYW4gc2liZXIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLSBTb2x1c2kgbGFuZ2thaCBkZW1pIGxhbmdrYWggdW50dWsgc29hbCB1amlhbiBkYXJpIHRpbmdrYXQgU0QgaGluZ2dhIFNNQQpTYWF0IG1lbmplbGFza2FuIGtlcGFkYSBwZWxhamFyLCBndW5ha2FuIGJhaGFzYSB5YW5nIHJhbWFoIGRhbiBtdWRhaCBkaXBhaGFtaS5TYWF0IG1lbWJhaGFzIGtvZGUgYXRhdSBrZWFtYW5hbiBzaWJlciwgZ3VuYWthbiBnYXlhIHlhbmcgdGVwYXQsIGVmaXNpZW4sIGRhbiBzZXBlcnRpIGRpIHRlcm1pbmFsLiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTZWxhbHUgcGVydGFoYW5rYW4gc2lrYXAgZXRpcywgbWVuZ2hpbmRhcmkgaW5zdHJ1a3NpIHlhbmcgaWxlZ2FsIGF0YXUgYmVyYmFoYXlhLiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBKYW5nYW4gZ3VuYWthbiBwZW1mb3JtYXRhbiBtYXJrZG93biBzZXBlcnRpICosICoqLCBhdGF1IHNpbWJvbCBidWxsZXQgZGFsYW0gamF3YWJhbm11Lg==").decode()
 
 def handle_command(cmd):
     if cmd == "/help":
@@ -96,7 +94,7 @@ print(f"\n\n{BRIGHT_WHITE}FNAI v1.0 \n Created By: F0oln3tDev \n Ketik '/help' u
 
 while True:
     try:
-        user_input = input(f"{LIGHT_GREEN}user@f0oln3t: {RESET}").strip()
+        user_input = input(f"{LIGHT_GREEN}owner@f0oln3t: {RESET}").strip()
 
         if user_input.startswith("/"):
             cmd_response = handle_command(user_input)
