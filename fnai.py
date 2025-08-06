@@ -94,7 +94,7 @@ print(f"\n\n{BRIGHT_WHITE}FNAI v1.0 \n Created By: F0oln3tDev \n Ketik '/help' u
 
 while True:
     try:
-        user_input = input(f"{LIGHT_GREEN}owner@f0oln3t: {RESET}").strip()
+        user_input = input(f"{LIGHT_GREEN}user@f0oln3t: {RESET}").strip()
 
         if user_input.startswith("/"):
             cmd_response = handle_command(user_input)
