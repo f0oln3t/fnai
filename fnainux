@@ -55,6 +55,7 @@ echo -e ""
 echo -e "[FNAI] Instaling python package"
 pip3 install base64
 pip3 install google-genai
+pip3 install requests
 clear
 
 echo -e "[FNAI] Instaling FNAi"
