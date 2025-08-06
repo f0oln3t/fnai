@@ -5,9 +5,9 @@ center_banner() {
     local termwidth=$(stty size | cut -d" " -f2)
 
     local banner=(
-        "=========================================="
-        "           FNAI LINUX INSTALLER           "
-        "=========================================="
+        "==========================================="
+        "           FNAI TERMUX INSTALLER           "
+        "==========================================="
         "======================="
         "       BY F0OLN3T      "
         "======================="
@@ -44,10 +44,10 @@ source <(echo "c3Bpbm5lcj0oICd8JyAnLycgJy0nICdcJyApOwoKY291bnQoKXsKICBzcGluICYKI
 
 echo -e ""
 # Dependencies Installation (minimal)
-echo -e "[FNAI] Instaling package..."
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install python3 python3-pip
+center "[FNAI] Instaling package..."
+pkg update -y
+pkg upgrade -y
+pkg install python3 python3-pip
 clear
 
 source <(echo "c3Bpbm5lcj0oICd8JyAnLycgJy0nICdcJyApOwoKY291bnQoKXsKICBzcGluICYKICBwaWQ9JCEKICBmb3IgaSBpbiBgc2VxIDEgMTBgCiAgZG8KICAgIHNsZWVwIDE7CiAgZG9uZQoKICBraWxsICRwaWQgIAp9CgpzcGluKCl7CiAgd2hpbGUgWyAxIF0KICBkbyAKICAgIGZvciBpIGluICR7c3Bpbm5lcltAXX07IAogICAgZG8gCiAgICAgIGVjaG8gLW5lICJcciRpIjsKICAgICAgc2xlZXAgMC4yOwogICAgZG9uZTsKICBkb25lCn0KCmNvdW50" | base64 -d)
